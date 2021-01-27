@@ -1,6 +1,5 @@
-package space.digitallab.kotlinretrofitpicassospotsdialog.Adapter
+package space.digitallab.testappforarview.adapters
 
-import Top
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -11,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.list_item.view.*
 import space.digitallab.testappforarview.R
+import space.digitallab.testappforarview.database.DB
 
 
-class GameListAdapter(private val context: Context,
-                      private val listContains: List<Top>):RecyclerView.Adapter<GameListAdapter.ContentHolder>() {
+class OffLineAdapter (private val context: Context,
+                      private val listContains: List<DB>): RecyclerView.Adapter<OffLineAdapter.ContentHolder>() {
 
     class ContentHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val image: ImageView = itemView.image
@@ -32,13 +32,12 @@ class GameListAdapter(private val context: Context,
 
     override fun getItemCount() = listContains.size
 
-    override fun onBindViewHolder(holder:ContentHolder, position: Int) {
+    override fun onBindViewHolder(holder: ContentHolder, position: Int) {
 
 
-        Picasso.get().load(listContains[position].game.logo.small).into(holder.image)
-        holder.name.text = listContains[position].game.name
-        holder.chanelCount.text = listContains[position].channels.toString()
-        holder.viewersCount.text = listContains[position].viewers.toString()
+        Picasso.get().load(R.drawable.ic_launcher_background).into(holder.image)
+        holder.name.text = listContains[position].name
+        holder.chanelCount.text = listContains[position].chanel
+        holder.viewersCount.text = listContains[position].viawers
     }
-
 }

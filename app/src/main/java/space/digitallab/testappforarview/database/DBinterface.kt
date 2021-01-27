@@ -32,7 +32,7 @@ class DBinterface(dbHelper: DBHelper) {
         val rowID = db.insert("mytable", null, cv)
     }
 
-    fun dataRead(listDatum: ArrayList<DB>) {
+    fun dataRead(listDatum: ArrayList<DB>?) {
         var i = 0
         val c = db.query("mytable", null, null, null, null, null, null)
         if (c.moveToFirst()) {
